@@ -3,12 +3,14 @@ package testingexample;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 public class GmailSignUpSeleniumTest {
 	public static void main(String args[] ) throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver", "/Users/vanshpatel/Downloads/chromedriver-mac-arm64/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions co = new ChromeOptions();
+		WebDriver driver = new ChromeDriver(co);
 		
 		System.out.println("----------Start of Test-----------\nOpnening Gmail Home Page");
 		driver.get("https://www.google.com/gmail/about/");
