@@ -1,5 +1,9 @@
 package testingexample;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,14 +11,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 
 public class FacebookLoginSeleniumTest {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, AWTException {
 		System.setProperty("webdriver.chrome.driver", "/Users/vanshpatel/Downloads/chromedriver-mac-arm64/chromedriver");
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability("chrome.binary", "/Users/vanshpatel/Downloads/chrome-mac-arm64 2/Google Chrome for Testing.app");
 		WebDriver driver = new ChromeDriver(capabilities);
 		driver.get("https://www.facebook.com/");
 		Thread.sleep(3000);
-		driver.findElement(By.linkText("Create new account")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Create')]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.name("firstname")).sendKeys("Vansh");
 		driver.findElement(By.name("lastname")).sendKeys("Seleniumtest");
